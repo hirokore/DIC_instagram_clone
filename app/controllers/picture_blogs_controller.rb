@@ -1,4 +1,5 @@
 class PictureBlogsController < ApplicationController
+  before_action :set_picture_blog, only: [ :show, :edit, :update, :destroy ]
 
   def new
     if params[:back]
