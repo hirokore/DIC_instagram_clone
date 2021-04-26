@@ -2,11 +2,12 @@
   <% if @favorites.empty? %>
     <h2>まだお気に入りがありません。</h2>
   <% else %>
-    <h2>favorittリスト</h2>
+    <h2>お気に入りリスト</h2>
     <tr>
       <th>投稿者</th>
       <th>タイトル</th>
       <th>本文</th>
+      <th>イメージ</th>
     </tr>
   <% end %>
 <% @favorites.each do |favorite| %>
@@ -15,12 +16,8 @@
     <td><%= favorite.picture_blog.title %></td>
     <td><%= favorite.picture_blog.content %></td>
     <% if favorite.picture_blog.image.url%>
-    <td>
-      <strong>イメージ:</strong>
-      <%= image_tag favorite.picture_blog.image.url %>
-    </td>
-<% end %>
-
+      <td><%= image_tag favorite.picture_blog.image.url %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
