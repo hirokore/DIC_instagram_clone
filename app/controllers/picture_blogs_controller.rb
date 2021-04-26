@@ -32,6 +32,7 @@ class PictureBlogsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(picture_blog_id: @picture_blog.id)
   end
 
   def edit
