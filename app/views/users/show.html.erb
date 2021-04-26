@@ -1,3 +1,12 @@
-<h1><%= @users.name %>のページ</h1>
-<p>メールアドレス：<%= @users.email %></p>
-<p><%= link_to 'お気に入り一覧', favorites_path %></p>
+<div class="users_h1_box"><h1><%= @users.name %>のページ</h1><%= link_to "アカウント編集", edit_user_path%></div>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>メールアドレス：<%= @users.email %>
+</p>
+
+<% if @users.image.url  %>
+  <p>
+    <strong>イメージ:</strong>
+    <%= image_tag @users.image.url %>
+  </p>
+<% end %>

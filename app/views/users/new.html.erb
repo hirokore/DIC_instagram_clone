@@ -1,14 +1,5 @@
 <div class="users_h1_box"><h1>Instagram Clone へようこそ！</h1></div>
-<% if @user.errors.any? %>
-	<div id="error_explanation">
-		<h2><%= @user.errors.count%>件のエラーより<%= @user.name if @user.name %><%= "ユーザ"  if @user.name.empty? %>の登録ができませんでした。</h2>
-		<ul>
-		<% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-		<% end %>
-		</ul>
-	</div>
-<% end %>
+<%= render 'form' %>
 <div class="login">
   <div class="login-triangle"></div>
   <h2 class="login-header">Log in</h2>
@@ -26,3 +17,4 @@
     </form>
     <% end %>
 </div>
+<%= link_to "戻る", users_path%>
