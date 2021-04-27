@@ -13,6 +13,7 @@ class PictureBlogsController < ApplicationController
     @picture_blog = PictureBlog.new(picture_blog_params)
     @picture_blog.user_id = current_user.id
     if @picture_blog.save
+      PictureBlogMailer.picture_blog_mail(@picture_blog).deliver
       redirect_to picture_blogs_path, notice: "投稿できました！"
     else
       render :new
